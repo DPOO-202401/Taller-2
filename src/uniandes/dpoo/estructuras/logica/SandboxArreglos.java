@@ -79,7 +79,22 @@ public class SandboxArreglos
      */
     public void agregarEntero( int entero )
     {
-
+    	
+    	int tamanio= getCantidadEnteros( ) + 1;
+    	int[] valores= new int[tamanio];
+    	
+    	for (int i = 0; i <= arregloEnteros.length; i++) 
+    	{
+    		int valor= arregloEnteros[i];
+            valores[i]= valor;
+            
+            if (i ==  arregloEnteros.length);
+            {
+            	valores[i]= entero;
+            }
+            
+    	}
+    	
     }
 
     /**

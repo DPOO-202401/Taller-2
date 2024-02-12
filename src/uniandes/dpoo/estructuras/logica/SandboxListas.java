@@ -100,8 +100,11 @@ public class SandboxListas
      * @param entero El valor que se va a agregar.
      */
     public void agregarEntero( int entero )
+    // crea una copia de una lista de los valores existentes con un espacio extra 
     {
-
+    	
+    	listaEnteros.add(listaEnteros.size(), entero);
+    	
     }
 
     /**
@@ -110,17 +113,26 @@ public class SandboxListas
      * @param cadena La cadena que se va a agregar.
      */
     public void agregarCadena( String cadena )
+   
     {
-
+    	listaCadenas.add(listaCadenas.size(), cadena);
+    
     }
 
     /**
      * Elimina todas las apariciones de un determinado valor dentro de la lista de enteros
      * @param valor El valor que se va eliminar
      */
-    public void eliminarEntero( int valor )
+    public void eliminarEntero( int entero )
     {
-    }
+
+    	for (int i = 0; i <= listaEnteros.size(); i++) 
+    	{
+    		int valor= listaEnteros.get(i);
+    		if (valor == entero );
+    	    	{
+    	    		listaEnteros.remove(i); }  }   }
+    	         
 
     /**
      * Elimina todas las apariciones de un determinado valor dentro de la lista de cadenas
@@ -128,8 +140,12 @@ public class SandboxListas
      */
     public void eliminarCadena( String cadena )
     {
-
-    }
+    	for (int i = 0; i <= listaCadenas.size(); i++) 
+    	{
+    		String valor= listaCadenas.get(i);
+    		if (valor == cadena );
+    	    	{
+    	    		listaCadenas.remove(i); }  }   }
 
     /**
      * Inserta un nuevo entero en la lista de enteros
