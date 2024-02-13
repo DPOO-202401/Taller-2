@@ -1,8 +1,11 @@
 package uniandes.dpoo.estructuras.logica;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.hamcrest.object.HasToString;
 
 /**
  * Esta clase tiene un conjunto de métodos para practicar operaciones sobre listas de enteros y de cadenas.
@@ -156,7 +159,8 @@ public class SandboxListas
      */
     public void insertarEntero( int entero, int posicion )
     {
-
+    	
+    	listaEnteros.add(posicion, entero);
     }
 
     /**
@@ -166,7 +170,7 @@ public class SandboxListas
      */
     public void eliminarEnteroPorPosicion( int posicion )
     {
-
+    	listaEnteros.remove(posicion);
     }
 
     /**
@@ -177,6 +181,13 @@ public class SandboxListas
      */
     public void reiniciarArregloEnteros( double[] valores )
     {
+    	
+    	 listaEnteros = new ArrayList<Integer>( );
+    	for (int i = 0; i < valores.length; i++)
+    	{
+    		double valor= valores[i];
+    		listaEnteros.add((int) valor);
+    	}
     }
 
     /**
@@ -187,8 +198,16 @@ public class SandboxListas
      */
     public void reiniciarArregloCadenas( List<Object> objetos )
     {
-
-    }
+    	
+    	listaCadenas = new ArrayList<String>( );
+    	
+	   	for (int i = 0; i < objetos.size(); i++)
+	   	{
+	   		String valor=  (String) objetos.get(i);
+	   		valor.toString();
+	   		listaCadenas.add(valor);
+   	}
+   }
 
     /**
      * Modifica la lista de enteros para que todos los valores sean positivos.
@@ -197,14 +216,36 @@ public class SandboxListas
      */
     public void volverPositivos( )
     {
+    	{
+
+        	for (int i = 0; i <= listaEnteros.size(); i++) 
+        	{
+        		int valor= listaEnteros.get(i);
+        		if (valor < 0 ) ;
+        	    	{
+        	    		int valormod = valor * -1;
+        	    		listaEnteros.set(i, valormod); }  }   }
     }
+    
+    
+   public int compare(int a, int b) 
+   {
+    	  if (a < b) {
+    	    return -1;
+    	  }
+    	  if (a > b) {
+    	    return 1;
+    	  }
+    	  // a debe ser igual b
+    	  return 0;
+    	}
 
     /**
      * Modifica la lista de enteros para que todos los valores queden organizados de MAYOR a MENOR.
      */
     public void organizarEnteros( )
     {
-
+    	Collections.sort(listaEnteros, Collections.reverseOrder());
     }
 
     /**
@@ -212,7 +253,7 @@ public class SandboxListas
      */
     public void organizarCadenas( )
     {
-
+    	Collections.sort(listaCadenas, Collections.reverseOrder());
     }
 
     /**
@@ -222,7 +263,16 @@ public class SandboxListas
      */
     public int contarApariciones( int valor )
     {
-        return -1;
+    	 {
+    		 int contador= 0;
+    	   for (int i = 0; i <= listaEnteros.size(); i++) 
+    	    	{
+    	    		int comparar= listaEnteros.get(i);
+    	    		if (valor == comparar );
+    	    	    	{
+    	    	    		contador++; }  }   
+        return contador;
+    	 }
     }
 
     /**
@@ -234,8 +284,17 @@ public class SandboxListas
      */
     public int contarApariciones( String cadena )
     {
-        return -1;
-    }
+   	 {
+   		 int contador= 0;
+   	   for (int i = 0; i <= listaCadenas.size(); i++) 
+   	    	{
+   	    		String comparar= listaCadenas.get(i);
+   	    		if (cadena == comparar );
+   	    	    	{
+   	    	    		contador++; }  }   
+       return contador;
+   	 }
+   }
 
     /**
      * Cuenta cuántos valores dentro de la lista de enteros están repetidos.
@@ -243,7 +302,20 @@ public class SandboxListas
      */
     public int contarEnterosRepetidos( )
     {
-        return -1;
+    	List<Integer> repetidos = new ArrayList<Integer>(listaEnteros);
+    	int contador= 0;
+    	 for (int i = 0; i <= listaEnteros.size(); i++)
+	    	{
+	    		Integer valor= listaEnteros.get(i);
+	    		if ( repetidos.contains(valor) == true )
+	    	    	{
+	    	    		contador++; }  
+	    	    else {
+	    	    		repetidos.add(valor);
+	    	    	} 
+	    	}
+
+        return contador;
     }
 
     /**
@@ -253,7 +325,23 @@ public class SandboxListas
      */
     public boolean compararArregloEnteros( int[] otroArreglo )
     {
-        return false;
+    	{
+    	int n= 0;
+    	for (int i = 0; i <= listaEnteros.size(); i++) 
+      	    	{ 	
+      	    		int valor1= listaEnteros.get(i);
+      	    		n= i;
+      	    		int valor2= otroArreglo[n];
+      	    		
+      	    		if (valor1 != valor2)
+      	    	    	{
+      	    			return false; 
+      	    			} 
+      	    		
+      	    	}   
+         return true ;
+      	 }
+    	
     }
 
     /**
