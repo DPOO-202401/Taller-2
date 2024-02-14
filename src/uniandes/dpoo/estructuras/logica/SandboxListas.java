@@ -227,18 +227,7 @@ public class SandboxListas
         	    		listaEnteros.set(i, valormod); }  }   }
     }
     
-    
-   public int compare(int a, int b) 
-   {
-    	  if (a < b) {
-    	    return -1;
-    	  }
-    	  if (a > b) {
-    	    return 1;
-    	  }
-    	  // a debe ser igual b
-    	  return 0;
-    	}
+ 
 
     /**
      * Modifica la lista de enteros para que todos los valores queden organizados de MAYOR a MENOR.

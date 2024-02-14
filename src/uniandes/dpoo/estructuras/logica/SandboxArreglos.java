@@ -1,6 +1,9 @@
 package uniandes.dpoo.estructuras.logica;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Esta clase tiene un conjunto de métodos para practicar operaciones sobre arreglos de enteros y de cadenas.
@@ -182,7 +185,7 @@ public class SandboxArreglos
      */
     public void eliminarEnteroPorPosicion( int posicion )
     {
-
+    	arregloEnteros[posicion]= 000;
     }
 
     /**
@@ -193,7 +196,16 @@ public class SandboxArreglos
      */
     public void reiniciarArregloEnteros( double[] valores )
     {
-
+        {
+        	int tamanio= getCantidadCadenas( );
+        	int [] arregloEnterosNuevo = new int [tamanio];
+        	
+    	   	for (int i = 0; i < valores.length; i++)
+    	   	{
+    	   		int valor=  (int) valores[i];
+    	   		arregloEnterosNuevo[i]= valor;
+       	}
+       }
     }
 
     /**
@@ -203,9 +215,19 @@ public class SandboxArreglos
      * @param valores Un arreglo de objetos
      */
     public void reiniciarArregloCadenas( Object[] objetos )
-    {
+  {
+    	
+    	int tamanio= getCantidadEnteros( );
+    	String [] arregloCadenasNuevo = new String[tamanio];
+    	
+	   	for (int i = 0; i < objetos.length; i++)
+	   	{
+	   		String valor=  (String) objetos[i];
+	   		valor.toString();
+	   		arregloCadenasNuevo[i]= valor;
+   	}
+   }
 
-    }
 
     /**
      * Modifica el arreglo de enteros para que todos los valores sean positivos.
@@ -214,7 +236,17 @@ public class SandboxArreglos
      */
     public void volverPositivos( )
     {
+        {
+        	{
 
+            	for (int i = 0; i <= arregloEnteros.length; i++) 
+            	{
+            		int valor= arregloEnteros[i];
+            		if (valor < 0 ) ;
+            	    	{
+            	    		int valormod = valor * -1;
+            	    		arregloEnteros[i]= valormod; }  }   }
+        }
     }
 
     /**
@@ -222,7 +254,7 @@ public class SandboxArreglos
      */
     public void organizarEnteros( )
     {
-
+    	Arrays.sort(arregloEnteros);
     }
 
     /**
@@ -230,7 +262,7 @@ public class SandboxArreglos
      */
     public void organizarCadenas( )
     {
-
+    	Arrays.sort(arregloCadenas);
     }
 
     /**
@@ -240,8 +272,17 @@ public class SandboxArreglos
      */
     public int contarApariciones( int valor )
     {
-        return -1;
-    }
+     	 {
+     		 int contador= 0;
+     	   for (int i = 0; i <= arregloEnteros.length; i++) 
+     	    	{
+     	    		int comparar= arregloEnteros[i];
+     	    		if (valor == comparar );
+     	    	    	{
+     	    	    		contador++; }  }   
+         return contador;
+     	 }
+     }
 
     /**
      * Cuenta cuántas veces aparece la cadena recibida por parámetro en el arreglo de cadenas.
@@ -252,8 +293,17 @@ public class SandboxArreglos
      */
     public int contarApariciones( String cadena )
     {
-        return -1;
-    }
+      	 {
+      		 int contador= 0;
+      	   for (int i = 0; i <= arregloCadenas.length; i++) 
+      	    	{
+      	    		String comparar= arregloCadenas[i];
+      	    		if (cadena == comparar );
+      	    	    	{
+      	    	    		contador++; }  }   
+          return contador;
+      	 }
+      }
 
     /**
      * Busca en qué posiciones del arreglo de enteros se encuentra el valor que se recibe en el parámetro
@@ -263,8 +313,32 @@ public class SandboxArreglos
      */
     public int[] buscarEntero( int valor )
     {
-        return null;
-    }
+      	 
+      		int n = 0;
+      		List<Integer> repetidos = new ArrayList<Integer>();
+      		 
+      	   for (int i = 0; i <= arregloEnteros.length; i++) 
+      	    	{
+      	    		int comparar= arregloEnteros[i];
+      	    		if (valor == comparar );
+      	    	    	{
+      	    	    		n++; 
+      	    	    		repetidos.add(valor);  
+      	    	    	}
+      	    	}
+      	    	
+	      	 int[] finalistas= new int[n];
+	      	
+	      	 for (int e = 0; e <= repetidos.size(); e++)
+	      	 	{
+	      		 int repetido = repetidos.get(e);
+	      		 finalistas[e]= repetido;
+	      	 
+      	    	}
+	      	 return finalistas;
+      	 }
+      	 
+
 
     /**
      * Calcula cuál es el rango de los enteros (el valor mínimo y el máximo).
