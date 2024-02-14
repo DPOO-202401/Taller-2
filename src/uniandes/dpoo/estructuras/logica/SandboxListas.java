@@ -227,7 +227,6 @@ public class SandboxListas
         	    		listaEnteros.set(i, valormod); }  }   }
     }
     
- 
 
     /**
      * Modifica la lista de enteros para que todos los valores queden organizados de MAYOR a MENOR.
@@ -291,7 +290,7 @@ public class SandboxListas
      */
     public int contarEnterosRepetidos( )
     {
-    	List<Integer> repetidos = new ArrayList<Integer>(listaEnteros);
+    	List<Integer> repetidos = new ArrayList<Integer>();
     	int contador= 0;
     	 for (int i = 0; i <= listaEnteros.size(); i++)
 	    	{
