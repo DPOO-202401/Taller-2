@@ -42,7 +42,8 @@ public class SandboxArreglos
      */
     public int[] getCopiaEnteros( )
     {
-        return null;
+    	int [] copia= arregloEnteros.clone();
+        return copia;
     }
 
     /**
@@ -51,7 +52,8 @@ public class SandboxArreglos
      */
     public String[] getCopiaCadenas( )
     {
-        return null;
+    	String [] copia= arregloCadenas.clone();
+        return copia;
     }
 
     /**
@@ -60,7 +62,8 @@ public class SandboxArreglos
      */
     public int getCantidadEnteros( )
     {
-        return -1;
+    	int tamanio= arregloEnteros.length;
+        return tamanio;
     }
 
     /**
@@ -69,7 +72,8 @@ public class SandboxArreglos
      */
     public int getCantidadCadenas( )
     {
-        return -1;
+    	int tamanio= arregloCadenas.length;
+        return tamanio;
     }
 
     /**
@@ -103,18 +107,41 @@ public class SandboxArreglos
      * @param cadena La cadena que se va a agregar.
      */
     public void agregarCadena( String cadena )
-    {
-
+ {
+    	
+    	int tamanio= getCantidadEnteros( ) + 1;
+    	String[] valores= new String[tamanio];
+    	
+    	for (int i = 0; i <= arregloCadenas.length; i++) 
+    	{
+    		String valor= arregloCadenas[i];
+            valores[i]= valor;
+            
+            if (i ==  arregloCadenas.length);
+            {
+            	valores[i]= cadena;
+            }
+            
+    	}
+    	
     }
 
     /**
      * Elimina todas las apariciones de un determinado valor dentro del arreglo de enteros
      * @param valor El valor que se va eliminar
      */
-    public void eliminarEntero( int valor )
+   
+	public void eliminarEntero( int valor )
     {
-
-    }
+          	   for (int i = 0; i <= arregloEnteros.length; i++) 
+          	    	{
+          	    		int comparar= arregloEnteros[i];
+          	    		if (valor == comparar );
+          	    	    	{
+          	    	    		arregloEnteros[i]= 000; }  }   
+              
+          	 }
+       
 
     /**
      * Elimina todas las apariciones de un determinado valor dentro del arreglo de cadenas
@@ -122,7 +149,18 @@ public class SandboxArreglos
      */
     public void eliminarCadena( String cadena )
     {
-
+        {
+          	 {
+          	
+          	   for (int i = 0; i <= arregloCadenas.length; i++) 
+          	    	{
+          	    		String comparar= arregloCadenas[i];
+          	    		if (cadena == comparar );
+          	    	    	{
+          	    	    		arregloCadenas[i]= null; }  }   
+              
+          	 }
+          }
     }
 
     /**
@@ -134,7 +172,7 @@ public class SandboxArreglos
      */
     public void insertarEntero( int entero, int posicion )
     {
-
+    	arregloEnteros[posicion]= entero;
     }
 
     /**

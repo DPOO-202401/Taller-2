@@ -355,7 +355,10 @@ public class SandboxListas
      */
     public void generarEnteros( int cantidad, int minimo, int maximo )
     {
-
+    	List<Integer> resultado = new ArrayList<>();
+        for (int i = 0; i < cantidad; i++) {
+            int numeroAleatorio = (int) (Math.random() * (maximo - minimo + 1)) + minimo;
+            resultado.add(numeroAleatorio);
+        }
     }
-
 }
