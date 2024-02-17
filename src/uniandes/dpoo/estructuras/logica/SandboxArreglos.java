@@ -347,7 +347,29 @@ public class SandboxArreglos
      */
     public int[] calcularRangoEnteros( )
     {
-        return null;
+        
+    	
+    	int max = arregloEnteros[0];
+    	int min =  arregloEnteros[0];
+    	
+    	int [] rango = new int [2];
+  		 
+  	   for (int i = 0; i <= arregloEnteros.length; i++) 
+  	    	{
+  	    		int comparar= arregloEnteros[i];
+  	    		if (comparar > max )
+  	    	    	{
+  	    	    		 max=comparar; 
+  	    	    		  
+  	    	    	}
+  	    		else if (comparar < min );
+  	    		{
+  	    			min=comparar;
+  	    		}
+  	    	}
+  	 rango[0]= min;
+	 rango[1]= max;
+	return rango;
     }
 
     /**
@@ -366,7 +388,20 @@ public class SandboxArreglos
      */
     public int contarEnterosRepetidos( )
     {
-        return -1;
+    	List<Integer> repetidos = new ArrayList<Integer>();
+    	int contador= 0;
+    	 for (int i = 0; i <= arregloEnteros.length; i++)
+	    	{
+	    		Integer valor= arregloEnteros.length;
+	    		if ( repetidos.contains(valor) == true )
+	    	    	{
+	    	    		contador++; }  
+	    	    else {
+	    	    		repetidos.add(valor);
+	    	    	} 
+	    	}
+
+        return contador;
     }
 
     /**
@@ -376,7 +411,22 @@ public class SandboxArreglos
      */
     public boolean compararArregloEnteros( int[] otroArreglo )
     {
-        return false;
+    	{
+    	int n= 0;
+    	for (int i = 0; i <= arregloEnteros.length; i++) 
+      	    	{ 	
+      	    		int valor1= arregloEnteros[i];
+      	    		n= i;
+      	    		int valor2= otroArreglo[n];
+      	    		
+      	    		if (valor1 != valor2)
+      	    	    	{
+      	    			return false; 
+      	    			} 
+      	    	}   
+         return true ;
+      	 }
+    	
     }
 
     /**
@@ -401,7 +451,13 @@ public class SandboxArreglos
      */
     public void generarEnteros( int cantidad, int minimo, int maximo )
     {
-
+    	int tamanio= getCantidadCadenas( );
+    	int [] resultado = new int [tamanio];
+    	
+        for (int i = 0; i < cantidad; i++) {
+            int numeroAleatorio = (int) (Math.random() * (maximo - minimo + 1)) + minimo;
+            resultado[i] = numeroAleatorio;
+        }
     }
-
 }
+

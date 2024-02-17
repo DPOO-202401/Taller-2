@@ -1,5 +1,6 @@
 package uniandes.dpoo.estructuras.logica;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -41,7 +42,13 @@ public class SandboxMapas
      */
     public List<String> getValoresComoLista( )
     {
-        return null;
+        List<String> valores = new ArrayList<>();
+        
+        for (String valor : mapaCadenas.values())
+	        {
+	            valores.add(valor);
+	        }
+         return valores;
     }
 
     /**
