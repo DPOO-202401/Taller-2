@@ -1,6 +1,10 @@
 package uniandes.dpoo.estructuras.logica;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.NavigableSet;
 import java.util.TreeSet;
@@ -39,7 +43,21 @@ public class SandboxConjuntos
      */
     public List<String> getCadenasComoLista( )
     {
-        return null;
+    	{
+
+    	    List<String> valores = new ArrayList<>();
+    	    
+    	    Iterator<String> valor = arbolCadenas.iterator();
+    	        
+    	    while (valor.hasNext()) 
+    	    {
+    	    	valores.add(valor.next());
+            }
+    	        
+    	        Collections.sort(valores);
+    	        
+    	         return valores;
+    	    }
     }
 
     /**
@@ -48,7 +66,23 @@ public class SandboxConjuntos
      */
     public List<String> getCadenasComoListaInvertida( )
     {
-        return null;
+        
+        	{
+
+        	    List<String> valores = new ArrayList<>();
+        	    
+        	    Iterator<String> valor = arbolCadenas.iterator();
+        	        
+        	    while (valor.hasNext()) 
+        	    {
+        	    	valores.add(valor.next());
+                }
+        	        
+        	        Collections.sort(valores, Collections.reverseOrder());
+        	        
+        	         return valores;
+        	    }
+        
     }
 
     /**
@@ -59,7 +93,18 @@ public class SandboxConjuntos
      */
     public String getPrimera( )
     {
-        return null;
+        {
+        	if (arbolCadenas.isEmpty() == false)
+        	{
+        		
+        		String primera= arbolCadenas.first();
+        		return primera;
+        	}
+        	else
+        	{
+        		return null;
+        	}
+        }
     }
 
     /**
@@ -70,7 +115,18 @@ public class SandboxConjuntos
      */
     public String getUltima( )
     {
-        return null;
+    	if (arbolCadenas.isEmpty() == false)
+    	{
+    		
+    		
+    		String ultima= arbolCadenas.last();
+    		return ultima;
+    		
+    	}
+    	else
+    	{
+    		return null;
+    	}
     }
 
     /**
@@ -80,7 +136,20 @@ public class SandboxConjuntos
      */
     public Collection<String> getSiguientes( String cadena )
     {
-        return null;
+        Collection<String> valores = new LinkedList<>();
+
+        Iterator<String> valor = arbolCadenas.iterator();
+
+        while (valor.hasNext()) 
+        {
+            String siguiente = valor.next();
+            if (siguiente.compareTo(cadena) <= 0) 
+            {
+                valores.add(siguiente);
+            }
+        }
+
+        return valores;
     }
 
     /**
@@ -89,7 +158,8 @@ public class SandboxConjuntos
      */
     public int getCantidadCadenas( )
     {
-        return -1;
+        int tamanio= arbolCadenas.size();
+        return tamanio;
     }
 
     /**
@@ -101,7 +171,7 @@ public class SandboxConjuntos
      */
     public void agregarCadena( String cadena )
     {
-
+    	arbolCadenas.add(cadena);
     }
 
     /**
@@ -110,7 +180,7 @@ public class SandboxConjuntos
      */
     public void eliminarCadena( String cadena )
     {
-
+    	arbolCadenas.remove(cadena);
     }
 
     /**
@@ -119,7 +189,17 @@ public class SandboxConjuntos
      */
     public void eliminarCadenaSinMayusculasOMinusculas( String cadena )
     {
-
+    	Iterator<String> valor = arbolCadenas.iterator();
+    	String cad = cadena.toLowerCase();
+        while (valor.hasNext()) 
+        {
+            String siguiente = valor.next();
+            String sig = siguiente.toLowerCase();
+            if (sig.compareTo(cad) == 0) 
+            {
+            	arbolCadenas.remove(siguiente);
+            }
+        }
     }
 
     /**
@@ -127,7 +207,8 @@ public class SandboxConjuntos
      */
     public void eliminarPrimera( )
     {
-
+    	String eliminar= arbolCadenas.first();
+    	arbolCadenas.remove(eliminar);
     }
 
     /**
@@ -138,7 +219,15 @@ public class SandboxConjuntos
      */
     public void reiniciarConjuntoCadenas( List<Object> objetos )
     {
+    	{
+    		arbolCadenas.clear(); 
 
+            for (Object obj : objetos) 
+            {
+                String cadena = obj.toString(); 
+                arbolCadenas.add(cadena);
+            }
+        }
     }
 
     /**
@@ -148,6 +237,17 @@ public class SandboxConjuntos
      */
     public void volverMayusculas( )
     {
+    	
+    		Iterator<String> valor = arbolCadenas.iterator();
+        	
+            while (valor.hasNext()) 
+            {
+                String siguiente = valor.next();
+                String mayuscula = siguiente.toUpperCase();
+                
+                arbolCadenas.add(mayuscula);
+            }
+
     }
 
     /**
@@ -155,7 +255,8 @@ public class SandboxConjuntos
      */
     public TreeSet<String> invertirCadenas( )
     {
-        return null;
+    	return new TreeSet<>(Collections.reverseOrder());
+
     }
 
     /**
@@ -165,7 +266,14 @@ public class SandboxConjuntos
      */
     public boolean compararElementos( String[] otroArreglo )
     {
-        return false;
+    	for (int i = 0; i <= otroArreglo.length; i++)
+    	{
+    		String comparar= otroArreglo[i];
+    		if(arbolCadenas.contains(comparar) == false)
+    		{
+    			return false;
+    		}
+    	}
+    	return true;
     }
-
 }

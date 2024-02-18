@@ -91,7 +91,7 @@ public class SandboxMapas
     		
     		List<String> ordenados= getLlavesComoListaInvertida();
     		
-    		int tamanio= ordenados.size()-1;
+    		int tamanio= ordenados.size();
     		String valor= ordenados.get(tamanio);
     		return valor;
     		
@@ -115,7 +115,7 @@ public class SandboxMapas
     		
     		List<String> ordenados= getValoresComoLista();
     		
-    		int tamanio= ordenados.size()-1;
+    		int tamanio= ordenados.size();
     		String valor= ordenados.get(tamanio);
     		return valor;
     		
@@ -206,8 +206,15 @@ public class SandboxMapas
      */
     public void reiniciarMapaCadenas( List<Object> objetos )
     {
-    	
+    	mapaCadenas.clear(); 
+
+        for (Object obj : objetos) 
+        {
+            String cadena = obj.toString(); 
+            mapaCadenas.put(cadena, cadena);
+        }
     }
+    
 
     /**
      * Modifica el mapa de cadenas reemplazando las llaves para que ahora todas estén en mayúsculas pero sigan conservando las mismas cadenas asociadas.

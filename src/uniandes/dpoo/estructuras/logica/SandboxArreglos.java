@@ -379,7 +379,23 @@ public class SandboxArreglos
      */
     public HashMap<Integer, Integer> calcularHistograma( )
     {
-        return null;
+    	 HashMap<Integer, Integer> histograma = new HashMap<>();
+    	 
+    	 
+    	    for (int llave : arregloEnteros) 
+    	    {
+    	        if(histograma.containsKey(llave) == true)
+    	        	
+    	        {
+    	        Integer valor = histograma.get(llave) + 1;
+    	        histograma.put(llave, valor);
+    	        }
+    	        else
+    	        	
+    	        	histograma.put(llave, 1);
+    	    }
+
+    	    return histograma;
     }
 
     /**
@@ -436,8 +452,23 @@ public class SandboxArreglos
      */
     public boolean mismosEnteros( int[] otroArreglo )
     {
-        return false;
+    	{
+    	int n= 0;
+    	for (int i = 0; i <= arregloEnteros.length; i++) 
+      	    	{ 	
+      	    		int valor1= arregloEnteros[i];
+      	    		n= i;
+      	    		int valor2= otroArreglo[n];
+      	    		
+      	    		if (valor1 != valor2)
+      	    	    	{
+      	    			return false; 
+      	    			} 
+      	    	}   
+         return true;
+      	 }
     }
+    	
 
     /**
      * Cambia los elementos del arreglo de enteros por una nueva serie de valores generada de forma aleatoria.
