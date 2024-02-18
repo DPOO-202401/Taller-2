@@ -241,7 +241,7 @@ public class SandboxListas
      */
     public void organizarCadenas( )
     {
-    	Collections.sort(listaCadenas, Collections.reverseOrder());
+    	Collections.sort(listaCadenas);
     }
 
     /**
